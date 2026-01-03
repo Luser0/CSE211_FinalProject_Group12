@@ -31,4 +31,5 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const events = await db.select().from(event);
     return res.status(200).json({ data: events });
   }
+  // hello test test
 }
