@@ -1,9 +1,9 @@
 // Mobile menu toggle functionality
 document.addEventListener("DOMContentLoaded", () => {
-  const mobileMenuButton = document.getElementById("mobile-menu-button");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const menuOpenIcon = document.getElementById("menu-open-icon");
-  const menuCloseIcon = document.getElementById("menu-close-icon");
+  const mobileMenuButton = document.querySelector("#mobile-menu-button");
+  const mobileMenu = document.querySelector("#mobile-menu");
+  const menuOpenIcon = document.querySelector("#menu-open-icon");
+  const menuCloseIcon = document.querySelector("#menu-close-icon");
 
   if (mobileMenuButton && mobileMenu && menuOpenIcon && menuCloseIcon) {
     mobileMenuButton.addEventListener("click", () => {
