@@ -14,6 +14,12 @@
     "moduleDetection": "force",
     "noEmit": true,
 
+    /* Path aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
@@ -22,5 +28,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "pages/scripts/main.ts", "pages/scripts/navbar.ts"]
+  "include": ["src/**/*", "pages/scripts/**/*", "api/**/*"]
 }
