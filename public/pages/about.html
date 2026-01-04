@@ -1,14 +1,47 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="../../src/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Page</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn more about EventsX and our mission to simplify event planning.">
+    <meta name="keywords" content="EventsX, About Us, Event Planning, mission">
+    <meta name="author" content="Your Full Name">
+    <title>About Us - EventsX</title>
+    
     <script type="module" src="/src/navbar.ts"></script>
-  </head>
-  <body>
+    <link rel="stylesheet" href="../../src/style.css">
+</head>
+<body class="bg-gray-50 font-sans leading-normal tracking-normal">
     <nav id="navbar" class="bg-gray-900 text-white shadow-lg"></nav>
-  </body>
+
+    <main class="container mx-auto px-4 py-8">
+        <nav aria-label="breadcrumb" class="mb-4 text-sm text-gray-600">
+            <a href="../../index.html" class="text-blue-600">Home</a> &gt; About Us
+        </nav>
+
+        <div class="flex flex-col md:flex-row gap-8">
+            <article class="md:w-3/4 bg-white p-6 rounded-lg shadow-sm">
+                <h1 class="text-3xl font-bold mb-4">About EventsX</h1>
+                <p class="mb-4 text-gray-700">EventsX is a dynamic platform designed to streamline the way you plan and manage your personal events. Our mission is to provide powerful tools like budget calculators and real-time event browsing to ensure your next gathering is a success.</p>
+                
+                <h2 class="text-xl font-semibold mb-2">Our Vision</h2>
+                <p class="mb-4 text-gray-700">To be the primary resource for event planners by combining modern web technologies with user-centric design.</p>
+                
+                <figure class="mt-6">
+                    <img src="../../images/about-team.jpg" alt="Our team collaborating on event planning" class="rounded-lg shadow-md w-full">
+                    <figcaption class="text-sm text-gray-500 mt-2">Our team working to improve your experience.</figcaption>
+                </figure>
+            </article>
+            <aside class="md:w-1/4 space-y-6">
+                <div class="bg-white p-4 rounded shadow-sm">
+                    <h3 class="font-bold border-b pb-2 mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-blue-600">
+                        <li><a href="events.html" class="hover:underline">Browse Events</a></li>
+                        <li><a href="registration.html" class="hover:underline">Join Us</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+</body>
 </html>

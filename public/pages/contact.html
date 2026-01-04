@@ -1,14 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="../../src/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Page</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with the EventsX team for support and inquiries.">
+    <meta name="keywords" content="EventsX, Contact, support, social media">
+    <meta name="author" content="Your Full Name">
+    <title>Contact Me - EventsX</title>
+    
     <script type="module" src="/src/navbar.ts"></script>
-  </head>
-  <body>
+    <link rel="stylesheet" href="../../src/style.css">
+</head>
+<body class="bg-gray-50 font-sans leading-normal tracking-normal">
     <nav id="navbar" class="bg-gray-900 text-white shadow-lg"></nav>
-  </body>
+
+    <main class="container mx-auto px-4 py-8">
+        <nav aria-label="breadcrumb" class="mb-4 text-sm text-gray-600">
+            <a href="../../index.html" class="text-blue-600">Home</a> &gt; Contact Me
+        </nav>
+
+        <div class="flex flex-col md:flex-row gap-8">
+            <article class="md:w-3/4 bg-white p-6 rounded-lg shadow-sm">
+                <h1 class="text-3xl font-bold mb-4">Contact Details</h1>
+                <p class="mb-6 text-gray-700">We would love to hear from you. Please use the information below to reach out.</p>
+
+                <address class="not-italic space-y-4">
+                    <div class="flex items-center gap-2">
+                        <strong class="text-blue-600">Email:</strong>
+                        <a href="mailto:support@eventsx.com" class="hover:underline">support@eventsx.com</a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <strong class="text-blue-600">Phone:</strong>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="mt-6">
+                        <h2 class="text-xl font-semibold mb-2">Social Media</h2>
+                        <ul class="flex gap-4">
+                            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">LinkedIn</a></li>
+                            <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Facebook</a></li>
+                            <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">Twitter</a></li>
+                        </ul>
+                    </div>
+                </address>
+            </article>
+
+            <aside class="md:w-1/4 space-y-6">
+                <div class="bg-white p-4 rounded shadow-sm">
+                    <h3 class="font-bold border-b pb-2 mb-4">Support</h3>
+                    <p class="text-sm text-gray-600 italic">Expected response time is 24-48 business hours.</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+</body>
 </html>
