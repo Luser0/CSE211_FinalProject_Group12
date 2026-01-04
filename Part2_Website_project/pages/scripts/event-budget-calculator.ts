@@ -7,25 +7,25 @@ class EventBudgetCalculator {
   private displayElement: HTMLElement;
 
   constructor() {
-    this.ticketInput = document.getElementById(
-      "ticketCost",
+    this.ticketInput = document.querySelector(
+      "#ticketCost",
     ) as HTMLInputElement;
-    this.travelInput = document.getElementById(
-      "travelCost",
+    this.travelInput = document.querySelector(
+      "#travelCost",
     ) as HTMLInputElement;
-    this.stayInput = document.getElementById(
-      "accommodationCost",
+    this.stayInput = document.querySelector(
+      "#accommodationCost",
     ) as HTMLInputElement;
-    this.nightsInput = document.getElementById("nights") as HTMLInputElement;
-    this.displayElement = document.getElementById(
-      "totalDisplay",
+    this.nightsInput = document.querySelector("#nights") as HTMLInputElement;
+    this.displayElement = document.querySelector(
+      "#totalDisplay",
     ) as HTMLElement;
 
     this.init();
   }
 
   private init(): void {
-    const calcBtn = document.getElementById("calculateBtn");
+    const calcBtn = document.querySelector("#calculateBtn");
     // Listen for events (clicks/form submissions)
     calcBtn?.addEventListener("click", () => this.calculateTotal());
   }
