@@ -1,15 +1,166 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="/pages/css/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home page</title>
-    <script type="module" src="/pages/scripts/navbar.ts"></script>
-  </head>
-  <body>
-    <nav id="navbar" class="bg-gray-900 text-white shadow-lg"></nav>
-    <div id="app"></div>
-  </body>
+
+<head>
+  <!-- ========== META TAGS ========== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="EventsX - Your dynamic event planner platform for discovering, registering, and managing amazing events" />
+  <meta name="keywords" content="events, event planner, event registration, event management, budget calculator" />
+  <meta name="author" content="Group 12 - CSE211" />
+
+  <!-- ========== FAVICON ========== -->
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+  <!-- ========== STYLESHEETS ========== -->
+  <link rel="stylesheet" href="/pages/css/style.css" />
+
+  <!-- ========== TITLE ========== -->
+  <title>Home - EventsX - EduConnect</title>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script type="module" src="/pages/scripts/navbar.ts"></script>
+</head>
+
+<body>
+  <!-- ========== HEADER SECTION ========== -->
+  <header>
+    <div class="header-content">
+      <a href="/" class="logo">
+        <span class="logo-image">🎉</span>
+        <span>EventsX</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+      <nav id="main-navigation" role="navigation">
+        <ul class="nav-menu">
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/pages/about.html">About Us</a></li>
+          <li><a href="/pages/events.html">Events</a></li>
+          <li><a href="/pages/registration.html">Registration</a></li>
+          <li><a href="/pages/budget-calculator.html">Budget Calculator</a></li>
+          <li><a href="/pages/contact.html">Contact Me</a></li>
+          <li><a href="https://www.example-university.edu" target="_blank" rel="noopener noreferrer">University Name</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- ========== END HEADER SECTION ========== -->
+
+  <!-- ========== MAIN CONTENT SECTION ========== -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Welcome to EventsX</h1>
+        <p>Discover, Register, and Experience Amazing Events</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="/pages/events.html" class="btn btn-primary">Browse Events</a>
+          <a href="/pages/registration.html" class="btn btn-secondary">Register Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section style="margin-top: 3rem;">
+      <h2 style="text-align: center; margin-bottom: 2rem;">What We Offer</h2>
+      <div class="events-grid">
+        <article class="card">
+          <div class="card-header">
+            <h3>📅 Browse Events</h3>
+          </div>
+          <div class="card-body">
+            <p>Explore a wide variety of upcoming events including conferences, workshops, concerts, and more.</p>
+          </div>
+          <div class="card-footer">
+            <a href="/pages/events.html" class="btn btn-outline">View Events</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <h3>✍️ Easy Registration</h3>
+          </div>
+          <div class="card-body">
+            <p>Register for events with our simple and secure online registration form. Get instant confirmation.</p>
+          </div>
+          <div class="card-footer">
+            <a href="/pages/registration.html" class="btn btn-outline">Register</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <h3>💰 Budget Calculator</h3>
+          </div>
+          <div class="card-body">
+            <p>Plan your event expenses with our interactive budget calculator. Track tickets, travel, and
+              accommodation.</p>
+          </div>
+          <div class="card-footer">
+            <a href="/pages/budget-calculator.html" class="btn btn-outline">Calculate Budget</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section
+      style="margin-top: 3rem; text-align: center; padding: 2rem; background-color: white; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+      <h2>Ready to Get Started?</h2>
+      <p style="font-size: 1.125rem; color: #4b5563; margin: 1rem 0 2rem;">Join thousands of event enthusiasts today!
+      </p>
+      <a href="/pages/registration.html" class="btn btn-primary" style="font-size: 1.125rem;">Sign Up Now</a>
+    </section>
+  </main>
+  <!-- ========== END MAIN CONTENT SECTION ========== -->
+
+  <!-- ========== FOOTER SECTION ========== -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-sections">
+        <!-- About Section -->
+        <div class="footer-section">
+          <h4>About EventsX</h4>
+          <p style="color: #d1d5db; font-size: 0.9rem;">Your premier platform for discovering and managing events. We
+            connect people with experiences that matter.</p>
+        </div>
+
+        <!-- Links Section -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="/pages/about.html">About Us</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="footer-section footer-contact">
+          <h4>Contact Us</h4>
+          <a href="mailto:info@eventsx.com">📧 info@eventsx.com</a>
+          <a href="tel:+1234567890">📱 (123) 456-7890</a>
+
+          <!-- Social Media -->
+          <div class="social-links">
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">🔗</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">🐦</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-bottom">
+        <p>&copy; <time datetime="2025">2025</time> EduConnect. All rights reserved.</p>
+        <p>Last Updated: <time datetime="2026-01-05">January 5, 2026</time></p>
+      </div>
+    </div>
+  </footer>
+  <!-- ========== END FOOTER SECTION ========== -->
+</body>
+
 </html>

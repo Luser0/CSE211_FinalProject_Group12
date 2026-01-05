@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ========== META TAGS ========== -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Calculate event-related costs including tickets, travel, and accommodation - EventsX Budget Calculator" />
+    <meta name="keywords" content="budget calculator, event expenses, travel costs, accommodation calculator" />
+    <meta name="author" content="Group 12 - CSE211" />
+
+    <!-- ========== FAVICON ========== -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- ========== STYLESHEETS ========== -->
+    <link rel="stylesheet" href="/pages/css/style.css" />
+
+    <!-- ========== TITLE ========== -->
+    <title>Budget Calculator - EventsX - EduConnect</title>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script type="module" src="/pages/scripts/navbar.ts"></script>
+    <script type="module" src="/pages/scripts/event-budget-calculator.ts"></script>
+</head>
+
+<body>
+    <!-- ========== HEADER SECTION ========== -->
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <span class="logo-image">🎉</span>
+                <span>EventsX</span>
+            </a>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+            <nav id="main-navigation" role="navigation">
+                <ul class="nav-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/pages/about.html">About Us</a></li>
+                    <li><a href="/pages/events.html">Events</a></li>
+                    <li><a href="/pages/registration.html">Registration</a></li>
+                    <li><a href="/pages/budget-calculator.html" class="active">Budget Calculator</a></li>
+                    <li><a href="/pages/contact.html">Contact Me</a></li>
+                    <li><a href="https://www.example-university.edu" target="_blank"
+                            rel="noopener noreferrer">University Name</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- ========== END HEADER SECTION ========== -->
+
+    <!-- ========== BREADCRUMB NAVIGATION ========== -->
+    <div class="breadcrumb">
+        <nav aria-label="breadcrumb" class="breadcrumb-nav">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li><span class="current">Budget Calculator</span></li>
+            </ol>
+        </nav>
+    </div>
+    <!-- ========== END BREADCRUMB SECTION ========== -->
+
+    <!-- ========== MAIN CONTENT SECTION ========== -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Event Budget Calculator</h1>
+                <p>Plan your event expenses with ease</p>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section class="calculator-container">
+            <h2 style="margin-bottom: 1.5rem; text-align: center;">Calculate Your Event Budget</h2>
+            <p style="text-align: center; color: #6b7280; margin-bottom: 2rem;">
+                Enter your expected costs below to get an instant total budget estimate
+            </p>
+
+            <form id="budgetForm">
+                <fieldset
+                    style="border: 2px solid #e5e7eb; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                    <legend style="font-size: 1.125rem; font-weight: 700; padding: 0 0.5rem; color: #1f2937;">Expense
+                        Details</legend>
+
+                    <!-- Ticket Cost -->
+                    <div class="form-group">
+                        <label for="ticketCost">Ticket Price ($)</label>
+                        <input type="number" id="ticketCost" name="ticketCost" required min="0" step="0.01"
+                            placeholder="0.00" aria-label="Ticket price in dollars" />
+                    </div>
+
+                    <!-- Travel Cost -->
+                    <div class="form-group">
+                        <label for="travelCost">Travel Cost ($)</label>
+                        <input type="number" id="travelCost" name="travelCost" required min="0" step="0.01"
+                            placeholder="0.00" aria-label="Travel cost in dollars" />
+                    </div>
+
+                    <!-- Accommodation Cost per Night -->
+                    <div class="form-group">
+                        <label for="accommodationCost">Accommodation Cost per Night ($)</label>
+                        <input type="number" id="accommodationCost" name="accommodationCost" required min="0"
+                            step="0.01" placeholder="0.00" aria-label="Accommodation cost per night" />
+                    </div>
+
+                    <!-- Number of Nights -->
+                    <div class="form-group">
+                        <label for="nights">Number of Nights</label>
+                        <input type="number" id="nights" name="nights" required min="0" step="1" placeholder="0"
+                            aria-label="Number of nights" />
+                    </div>
+
+                    <!-- Food/Meals Cost per Day -->
+                    <div class="form-group">
+                        <label for="foodCost">Food/Meals Cost per Day ($)</label>
+                        <input type="number" id="foodCost" name="foodCost" min="0" step="0.01" placeholder="0.00"
+                            aria-label="Food cost per day" />
+                    </div>
+
+                    <!-- Miscellaneous Expenses -->
+                    <div class="form-group">
+                        <label for="miscCost">Miscellaneous Expenses ($)</label>
+                        <input type="number" id="miscCost" name="miscCost" min="0" step="0.01" placeholder="0.00"
+                            aria-label="Miscellaneous expenses" />
+                    </div>
+                </fieldset>
+
+                <!-- Buttons -->
+                <div style="display: flex; gap: 1rem;">
+                    <button type="button" id="calculateBtn" class="btn btn-primary" style="flex: 1;">
+                        Calculate Total
+                    </button>
+                    <button type="reset" id="resetBtn" class="btn btn-outline">
+                        Reset
+                    </button>
+                </div>
+            </form>
+
+            <!-- Results Display -->
+            <div id="resultSection" class="calculation-result hidden">
+                <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #1f2937;">Budget Breakdown
+                </h3>
+
+                <div class="result-row">
+                    <span>Ticket Price:</span>
+                    <span id="result-ticket">$0.00</span>
+                </div>
+
+                <div class="result-row">
+                    <span>Travel Cost:</span>
+                    <span id="result-travel">$0.00</span>
+                </div>
+
+                <div class="result-row">
+                    <span>Accommodation (<span id="result-nights">0</span> nights):</span>
+                    <span id="result-accommodation">$0.00</span>
+                </div>
+
+                <div class="result-row">
+                    <span>Food/Meals:</span>
+                    <span id="result-food">$0.00</span>
+                </div>
+
+                <div class="result-row">
+                    <span>Miscellaneous:</span>
+                    <span id="result-misc">$0.00</span>
+                </div>
+
+                <div class="result-row">
+                    <span style="font-size: 1.5rem;">Total Budget:</span>
+                    <span id="result-total" style="font-size: 1.5rem;">$0.00</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips Section -->
+        <section style="margin-top: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+            <article class="card">
+                <h3>💡 Budget Planning Tips</h3>
+                <ul style="color: #4b5563; line-height: 1.8;">
+                    <li>Book your tickets and accommodation early for better rates</li>
+                    <li>Consider sharing accommodation to split costs</li>
+                    <li>Look for group discounts on event tickets</li>
+                    <li>Factor in transportation costs to and from the venue</li>
+                    <li>Set aside 10-15% extra for unexpected expenses</li>
+                    <li>Use public transportation when possible to save money</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+    <!-- ========== END MAIN CONTENT SECTION ========== -->
+
+    <!-- ========== FOOTER SECTION ========== -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-sections">
+                <!-- About Section -->
+                <div class="footer-section">
+                    <h4>About EventsX</h4>
+                    <p style="color: #d1d5db; font-size: 0.9rem;">Your premier platform for discovering and managing
+                        events. We connect people with experiences that matter.</p>
+                </div>
+
+                <!-- Links Section -->
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="/pages/about.html">About Us</a></li>
+                        <li><a href="/pages/contact.html">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="footer-section footer-contact">
+                    <h4>Contact Us</h4>
+                    <a href="mailto:info@eventsx.com">📧 info@eventsx.com</a>
+                    <a href="tel:+1234567890">📱 (123) 456-7890</a>
+
+                    <!-- Social Media -->
+                    <div class="social-links">
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">🔗</a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">🐦</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; <time datetime="2025">2025</time> EduConnect. All rights reserved.</p>
+                <p>Last Updated: <time datetime="2026-01-05">January 5, 2026</time></p>
+            </div>
+        </div>
+    </footer>
+    <!-- ========== END FOOTER SECTION ========== -->
+</body>
+
+</html>

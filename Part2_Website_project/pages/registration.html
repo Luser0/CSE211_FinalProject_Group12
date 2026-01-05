@@ -1,14 +1,215 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="/pages/css/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration Page</title>
-    <script type="module" src="/pages/scripts/navbar.ts"></script>
-  </head>
-  <body>
-    <nav id="navbar" class="bg-gray-900 text-white shadow-lg"></nav>
-  </body>
+
+<head>
+  <!-- ========== META TAGS ========== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Register for events on EventsX - Your event planner platform" />
+  <meta name="keywords" content="event registration, sign up, register for events" />
+  <meta name="author" content="Group 12 - CSE211" />
+
+  <!-- ========== FAVICON ========== -->
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+  <!-- ========== STYLESHEETS ========== -->
+  <link rel="stylesheet" href="/pages/css/style.css" />
+
+  <!-- ========== TITLE ========== -->
+  <title>Event Registration - EventsX - EduConnect</title>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script type="module" src="/pages/scripts/navbar.ts"></script>
+  <script type="module" src="/pages/scripts/registration-form.ts"></script>
+</head>
+
+<body>
+  <!-- ========== HEADER SECTION ========== -->
+  <header>
+    <div class="header-content">
+      <a href="/" class="logo">
+        <span class="logo-image">🎉</span>
+        <span>EventsX</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+      <nav id="main-navigation" role="navigation">
+        <ul class="nav-menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="/pages/about.html">About Us</a></li>
+          <li><a href="/pages/events.html">Events</a></li>
+          <li><a href="/pages/registration.html" class="active">Registration</a></li>
+          <li><a href="/pages/budget-calculator.html">Budget Calculator</a></li>
+          <li><a href="/pages/contact.html">Contact Me</a></li>
+          <li><a href="https://www.example-university.edu" target="_blank" rel="noopener noreferrer">University Name</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- ========== END HEADER SECTION ========== -->
+
+  <!-- ========== BREADCRUMB NAVIGATION ========== -->
+  <div class="breadcrumb">
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><span class="current">Registration</span></li>
+      </ol>
+    </nav>
+  </div>
+  <!-- ========== END BREADCRUMB SECTION ========== -->
+
+  <!-- ========== MAIN CONTENT SECTION ========== -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Event Registration</h1>
+        <p>Sign up for your favorite events</p>
+      </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section class="calculator-container" style="max-width: 700px;">
+      <h2 style="margin-bottom: 1.5rem; text-align: center;">Register for an Event</h2>
+
+      <!-- Success Message -->
+      <div id="successMessage" class="alert alert-success hidden">
+        <h3 style="font-weight: 700; margin-bottom: 0.5rem;">Registration Successful!</h3>
+        <p>Thank you for registering. You will receive a confirmation email shortly.</p>
+      </div>
+
+      <!-- Error Message -->
+      <div id="formError" class="alert alert-error hidden">
+        <h3 style="font-weight: 700; margin-bottom: 0.5rem;">Registration Failed</h3>
+        <p id="formErrorMessage"></p>
+      </div>
+
+      <!-- Registration Form -->
+      <form id="registrationForm" novalidate>
+        <!-- Event Selection -->
+        <div class="form-group">
+          <label for="eventId">Select Event <span style="color: var(--error-color);">*</span></label>
+          <select id="eventId" name="eventId" required>
+            <option value="">-- Choose an Event --</option>
+          </select>
+          <span class="error-message" id="eventId-error">Please select an event</span>
+        </div>
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="name">Full Name <span style="color: var(--error-color);">*</span></label>
+          <input type="text" id="name" name="name" required minlength="2" maxlength="100"
+            placeholder="Enter your full name" aria-required="true" />
+          <span class="error-message" id="name-error">Please enter your full name (min 2 characters)</span>
+        </div>
+
+        <!-- Email Address -->
+        <div class="form-group">
+          <label for="email">Email Address <span style="color: var(--error-color);">*</span></label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com" aria-required="true" />
+          <span class="error-message" id="email-error">Please enter a valid email address</span>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="form-group">
+          <label for="phonenumber">Phone Number <span style="color: var(--error-color);">*</span></label>
+          <input type="tel" id="phonenumber" name="phonenumber" required pattern="[0-9]{10,15}" placeholder="1234567890"
+            aria-required="true" />
+          <span class="error-message" id="phonenumber-error">Please enter a valid phone number (10-15 digits)</span>
+        </div>
+
+        <!-- Special Requirements (Optional) -->
+        <div class="form-group">
+          <label for="specialRequirements">Special Requirements (Optional)</label>
+          <textarea id="specialRequirements" name="specialRequirements" rows="4"
+            placeholder="Any dietary restrictions, accessibility needs, or other special requirements"></textarea>
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div class="form-group" style="flex-direction: row; align-items: center; gap: 0.75rem;">
+          <input type="checkbox" id="terms" name="terms" required style="width: auto; margin: 0;"
+            aria-required="true" />
+          <label for="terms" style="margin: 0; font-weight: 400;">
+            I agree to the <a href="#" style="color: var(--primary-color);">Terms and Conditions</a> <span
+              style="color: var(--error-color);">*</span>
+          </label>
+        </div>
+        <span class="error-message" id="terms-error">You must agree to the terms and conditions</span>
+
+        <!-- Submit Button -->
+        <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+          <button type="submit" class="btn btn-primary" style="flex: 1;">
+            Register Now
+          </button>
+          <button type="reset" class="btn btn-outline" style="flex: 0 0 auto;">
+            Reset Form
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Information Section -->
+    <section style="margin-top: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+      <article class="card">
+        <h3>Why Register?</h3>
+        <ul style="color: #4b5563; line-height: 1.8;">
+          <li>Secure your spot at exclusive events</li>
+          <li>Receive event updates and reminders</li>
+          <li>Get access to event materials and resources</li>
+          <li>Connect with other attendees</li>
+          <li>Manage your registrations in one place</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+  <!-- ========== END MAIN CONTENT SECTION ========== -->
+
+  <!-- ========== FOOTER SECTION ========== -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-sections">
+        <!-- About Section -->
+        <div class="footer-section">
+          <h4>About EventsX</h4>
+          <p style="color: #d1d5db; font-size: 0.9rem;">Your premier platform for discovering and managing events. We
+            connect people with experiences that matter.</p>
+        </div>
+
+        <!-- Links Section -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="/pages/about.html">About Us</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="footer-section footer-contact">
+          <h4>Contact Us</h4>
+          <a href="mailto:info@eventsx.com">📧 info@eventsx.com</a>
+          <a href="tel:+1234567890">📱 (123) 456-7890</a>
+
+          <!-- Social Media -->
+          <div class="social-links">
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">🔗</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">🐦</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-bottom">
+        <p>&copy; <time datetime="2025">2025</time> EduConnect. All rights reserved.</p>
+        <p>Last Updated: <time datetime="2026-01-05">January 5, 2026</time></p>
+      </div>
+    </div>
+  </footer>
+  <!-- ========== END FOOTER SECTION ========== -->
+</body>
+
 </html>

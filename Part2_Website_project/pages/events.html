@@ -1,133 +1,167 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="/pages/css/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Discover Events</title>
-    <script type="module" src="/pages/scripts/navbar.ts"></script>
-    <script type="module" src="/pages/scripts/get-events.ts"></script>
-  </head>
-  <body class="bg-gray-50">
-    <nav id="navbar" class="bg-gray-900 text-white shadow-lg"></nav>
 
+<head>
+  <!-- ========== META TAGS ========== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse and discover upcoming events - EventsX event planner platform" />
+  <meta name="keywords" content="events, upcoming events, event discovery, event registration" />
+  <meta name="author" content="Group 12 - CSE211" />
+
+  <!-- ========== FAVICON ========== -->
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+  <!-- ========== STYLESHEETS ========== -->
+  <link rel="stylesheet" href="/pages/css/style.css" />
+
+  <!-- ========== TITLE ========== -->
+  <title>Discover Events - EventsX - EduConnect</title>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script type="module" src="/pages/scripts/navbar.ts"></script>
+  <script type="module" src="/pages/scripts/get-events.ts"></script>
+</head>
+
+<body>
+  <!-- ========== HEADER SECTION ========== -->
+  <header>
+    <div class="header-content">
+      <a href="/" class="logo">
+        <span class="logo-image">🎉</span>
+        <span>EventsX</span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+      <nav id="main-navigation" role="navigation">
+        <ul class="nav-menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="/pages/about.html">About Us</a></li>
+          <li><a href="/pages/events.html" class="active">Events</a></li>
+          <li><a href="/pages/registration.html">Registration</a></li>
+          <li><a href="/pages/budget-calculator.html">Budget Calculator</a></li>
+          <li><a href="/pages/contact.html">Contact Me</a></li>
+          <li><a href="https://www.example-university.edu" target="_blank" rel="noopener noreferrer">University Name</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- ========== END HEADER SECTION ========== -->
+
+  <!-- ========== BREADCRUMB NAVIGATION ========== -->
+  <div class="breadcrumb">
+    <nav aria-label="breadcrumb" class="breadcrumb-nav">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><span class="current">Events</span></li>
+      </ol>
+    </nav>
+  </div>
+  <!-- ========== END BREADCRUMB SECTION ========== -->
+
+  <!-- ========== MAIN CONTENT SECTION ========== -->
+  <main>
     <!-- Hero Section -->
-    <div class="bg-linear-to-r from-blue-600 to-blue-800 text-white">
-      <div class="max-w-7xl mx-auto px-4 py-12">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Discover Amazing Events</h1>
-        <p class="text-xl text-blue-100 mb-8">Find and register for events that inspire you</p>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Discover Amazing Events</h1>
+        <p>Find and register for events that inspire you</p>
       </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters">
+      <div class="filter-group">
+        <label for="sortBy">Sort by:</label>
+        <select id="sortBy">
+          <option value="date">Date</option>
+          <option value="name">Name</option>
+          <option value="location">Location</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="categoryFilter">Category:</label>
+        <select id="categoryFilter">
+          <option value="all">All Categories</option>
+        </select>
+      </div>
+      <div style="flex: 1;"></div>
+      <div style="display: flex; align-items: center; gap: 0.5rem; color: #4b5563;">
+        <span id="resultCount" style="font-weight: 700;">0</span> events found
+      </div>
+    </section>
+
+    <!-- Loading State -->
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+      <p style="color: #4b5563;">Loading events...</p>
     </div>
 
-    <main class="max-w-7xl mx-auto px-4 py-8">
-      <!-- Filters -->
-      <div class="mb-6 flex flex-wrap gap-4 items-center">
-        <div class="flex items-center gap-2">
-          <label class="text-gray-700 font-medium">Sort by:</label>
-          <select id="sortBy" class="px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <option value="date">Date</option>
-            <option value="name">Name</option>
-          </select>
+    <!-- Error State -->
+    <div id="error" class="alert alert-error hidden">
+      <h3 style="font-weight: 700; margin-bottom: 0.5rem;">Unable to load events</h3>
+      <p id="errorMessage"></p>
+    </div>
+
+    <!-- Events Grid -->
+    <div id="eventsContainer" class="events-grid hidden">
+      <!-- Events will be inserted here dynamically -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="hidden text-center" style="padding: 5rem 0;">
+      <div style="font-size: 4rem; margin-bottom: 1rem;">📅</div>
+      <h3 style="font-size: 1.5rem; font-weight: 700; color: #374151; margin-bottom: 0.5rem;">No events found</h3>
+      <p style="color: #6b7280;">Try adjusting your search or filters</p>
+    </div>
+  </main>
+  <!-- ========== END MAIN CONTENT SECTION ========== -->
+
+  <!-- ========== FOOTER SECTION ========== -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-sections">
+        <!-- About Section -->
+        <div class="footer-section">
+          <h4>About EventsX</h4>
+          <p style="color: #d1d5db; font-size: 0.9rem;">Your premier platform for discovering and managing events. We
+            connect people with experiences that matter.</p>
         </div>
-        <div class="flex-1"></div>
-        <div class="text-gray-600">
-          <span id="resultCount" class="font-semibold">0</span> events found
+
+        <!-- Links Section -->
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="/pages/about.html">About Us</a></li>
+            <li><a href="/pages/contact.html">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
         </div>
-      </div>
 
-      <!-- Loading State -->
-      <div id="loading" class="text-center py-20">
-        <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-        <p class="mt-4 text-gray-600">Loading events...</p>
-      </div>
+        <!-- Contact Section -->
+        <div class="footer-section footer-contact">
+          <h4>Contact Us</h4>
+          <a href="mailto:info@eventsx.com">📧 info@eventsx.com</a>
+          <a href="tel:+1234567890">📱 (123) 456-7890</a>
 
-      <!-- Error State -->
-      <div id="error" class="hidden bg-red-50 border border-red-200 text-red-800 p-6 rounded-lg">
-        <h3 class="font-semibold mb-2">Unable to load events</h3>
-        <p id="errorMessage"></p>
-      </div>
-
-      <!-- Events Grid -->  
-      <div id="eventsContainer" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Events will be inserted here -->
-      </div>
-
-      <!-- Empty State -->
-      <div id="emptyState" class="hidden text-center py-20">
-        <div class="text-gray-400 mb-4">
-          <svg class="w-24 h-24 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
-        </div>
-        <h3 class="text-xl font-semibold text-gray-700 mb-2">No events found</h3>
-        <p class="text-gray-500">Try adjusting your search or filters</p>
-      </div>
-    </main>
-
-    <!-- Event Details Modal -->
-    <div id="eventModal" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4">
-      <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <!-- Modal Header with Image Placeholder -->
-        <div class="bg-linear-to-r from-blue-600 to-blue-800 h-48 rounded-t-xl relative">
-          <button id="closeModal" class="absolute top-4 right-4 text-white hover:bg-white hover:bg-opacity-20 rounded-full p-2 transition">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
-        
-        <!-- Modal Content -->
-        <div class="p-8">
-          <h2 id="modalTitle" class="text-3xl font-bold text-gray-900 mb-4"></h2>
-          
-          <!-- Event Meta Info -->
-          <div class="flex flex-wrap gap-4 mb-6">
-            <div class="flex items-center text-gray-600">
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-              </svg>
-              <span id="modalDate" class="font-medium"></span>
-            </div>
-            <div class="flex items-center text-gray-600">
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
-              </svg>
-              <span id="modalCategoryName" class="font-medium">Category</span>
-            </div>
-          </div>
-
-          <!-- Description -->
-          <div class="mb-8">
-            <h3 class="text-lg font-semibold text-gray-900 mb-3">About This Event</h3>
-            <p id="modalDescription" class="text-gray-700 leading-relaxed"></p>
-          </div>
-
-          <!-- Registration Section -->
-          <div class="bg-blue-50 rounded-lg p-6 mb-6">
-            <div class="flex items-center justify-between mb-4">
-              <div>
-                <p class="text-sm text-gray-600 mb-1">Registration</p>
-                <p class="text-2xl font-bold text-blue-600">Free</p>
-              </div>
-              <div class="text-right">
-                <p class="text-sm text-gray-600 mb-1">Availability</p>
-                <p class="text-lg font-semibold text-green-600">Open</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Action Buttons -->
-          <div class="flex gap-4">
-            <button id="registerBtn" class="flex-1 bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700 transition font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-              Register for this Event
-            </button>
-            <button id="shareBtn" class="px-6 py-4 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-blue-600 hover:text-blue-600 transition font-semibold">
-              Share
-            </button>
+          <!-- Social Media -->
+          <div class="social-links">
+            <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">🔗</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">🐦</a>
           </div>
         </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-bottom">
+        <p>&copy; <time datetime="2025">2025</time> EduConnect. All rights reserved.</p>
+        <p>Last Updated: <time datetime="2026-01-05">January 5, 2026</time></p>
       </div>
     </div>
-  </body>
+  </footer>
+  <!-- ========== END FOOTER SECTION ========== -->
+</body>
+
 </html>
