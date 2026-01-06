@@ -11,7 +11,7 @@
   <body class="bg-[#0f172a] font-sans text-gray-100 antialiased">
     <nav id="navbar" class="sticky top-0 z-50 bg-gray-900 text-white shadow-lg"></nav>
 
-    <header class="border-b border-white/[0.05] bg-gradient-to-b from-gray-900 to-[#0f172a] px-6 py-20">
+    <header class="border-b border-white/5 bg-linear-to-b from-gray-900 to-[#0f172a] px-6 py-20">
       <div class="mx-auto max-w-7xl">
         <span class="mb-4 inline-block rounded-full border border-[#50a2ff]/20 bg-[#50a2ff]/10 px-3 py-1 text-[10px] font-black tracking-[0.2em] text-[#50a2ff] uppercase">2026 Season</span>
         <h1 class="mb-6 text-5xl font-black tracking-tighter text-white md:text-6xl">Event <span class="text-[#50a2ff]">Schedule</span></h1>
@@ -32,22 +32,22 @@
           <table class="w-full border-collapse text-left">
             <caption class="sr-only">List of available workshops and events</caption>
             <thead>
-              <tr class="border-b border-white/[0.05] bg-white/[0.02]">
+              <tr class="border-b border-white/5 bg-white/2">
                 <th scope="col" class="px-6 py-5 text-[10px] font-black tracking-[0.2em] text-gray-500 uppercase">Workshop Name</th>
                 <th scope="col" class="px-6 py-5 text-[10px] font-black tracking-[0.2em] text-gray-500 uppercase">Scheduled Date</th>
                 <th scope="col" class="hidden px-6 py-5 text-[10px] font-black tracking-[0.2em] text-gray-500 uppercase lg:table-cell">Overview</th>
                 <th scope="col" class="px-6 py-5"><span class="sr-only">Actions</span></th>
               </tr>
             </thead>
-            <tbody id="eventsBody" class="divide-y divide-white/[0.02]"></tbody>
+            <tbody id="eventsBody" class="divide-y divide-white/2"></tbody>
           </table>
         </div>
       </section>
       <p class="mt-8 text-center text-xs font-bold tracking-widest text-gray-600 uppercase">Total Events: <span id="resultCount" class="text-gray-400">0</span></p>
     </main>
 
-    <dialog id="eventModal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-slate-900/40 p-6 backdrop-blur-xl transition-all duration-300">
-      <div class="w-full max-w-xl overflow-hidden rounded-[2.5rem] border border-white/[0.1] bg-[#111827] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+    <dialog id="eventModal" class="fixed inset-0 z-60 hidden items-center justify-center bg-slate-900/40 p-6 backdrop-blur-xl transition-all duration-300">
+      <div class="w-full max-w-xl overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#111827] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         <header class="p-10 pb-0">
           <div class="mb-8 flex items-center justify-between">
             <h2 id="modalTitle" class="text-3xl font-black tracking-tighter text-white"></h2>
