@@ -1,15 +1,87 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="/pages/css/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home page</title>
-    <script type="module" src="/pages/scripts/navbar.ts"></script>
-  </head>
-  <body>
-    <nav id="navbar"></nav>
-    <div id="app"></div>
-  </body>
+<html lang="en" class="bg-[#0b0f1a]">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EventsX | Plan Smarter</title>
+  <script type="module" src="/pages/scripts/navbar.ts"></script>
+  <link rel="stylesheet" href="./pages/css/style.css" />
+  <style>
+    @keyframes pulse-slow {
+
+      0%,
+      100% {
+        opacity: 0.15;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.25;
+        transform: scale(1.1);
+      }
+    }
+
+    .animate-pulse-slow {
+      animation: pulse-slow 8s infinite ease-in-out;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+
+<body class="text-slate-300 font-sans antialiased overflow-hidden selection:bg-blue-500/30">
+
+  <nav id="navbar"></nav>
+
+  <header class="relative flex min-h-screen items-center justify-center overflow-hidden px-6 text-center">
+
+    <div class="absolute inset-0 -z-10">
+      <div
+        class="absolute top-[-10%] left-[-10%] h-150 w-150 rounded-full bg-blue-600/20 blur-[120px] animate-pulse-slow">
+      </div>
+      <div
+        class="absolute bottom-[-10%] right-[-10%] h-150 w-150 rounded-full bg-indigo-600/10 blur-[120px] animate-pulse-slow"
+        style="animation-delay: 2s;"></div>
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-5xl">
+      <div
+        class="mb-8 inline-flex items-center rounded-full border border-blue-500/30 bg-blue-500/5 px-4 py-1.5 backdrop-blur-md">
+        <span class="flex h-2 w-2 rounded-full bg-blue-500 animate-ping mr-3"></span>
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-blue-400">Now Booking for 2026</span>
+      </div>
+
+      <h1 class="text-6xl font-black tracking-tighter text-white md:text-8xl lg:text-9xl">
+        Plan the future <br class="hidden md:block" />
+        of <span
+          class="bg-linear-to-b from-blue-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(59,130,246,0.3)]">Events</span>
+      </h1>
+
+      <p class="mt-8 text-lg text-slate-400 md:text-2xl max-w-2xl mx-auto leading-relaxed font-light">
+        The premium ecosystem for campus organizers. Track budgets with precision and manage registrations with a
+        <span class="text-slate-200 border-b border-blue-500/50">single, fluid interface.</span>
+      </p>
+
+      <div class="mt-12 flex flex-wrap justify-center gap-6">
+        <a href="/pages/events.html"
+          class="group relative overflow-hidden rounded-2xl bg-blue-600 px-12 py-5 text-sm font-black uppercase tracking-widest text-white shadow-[0_20px_40px_-15px_rgba(37,99,235,0.6)] hover:scale-105 active:scale-95 transition-all duration-300">
+          <span class="relative z-10">Explore Events</span>
+          <div
+            class="absolute inset-0 -z-0 bg-linear-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
+          </div>
+        </a>
+
+        <a href="/pages/budget-calculator.html"
+          class="rounded-2xl border border-slate-700 bg-slate-800/20 backdrop-blur-xl px-12 py-5 text-sm font-black uppercase tracking-widest text-white hover:bg-slate-800/50 hover:border-slate-500 transition-all duration-300">
+          Budget Tool
+        </a>
+      </div>
+    </div>
+  </header>
+</body>
 </html>
