@@ -8,66 +8,93 @@
     <script type="module" src="/pages/scripts/navbar.ts"></script>
     <script type="module" src="./scripts/events.ts"></script>
   </head>
-  <body class="bg-[#0f172a] font-sans text-gray-100 antialiased">
-    <nav id="navbar" class="sticky top-0 z-50 bg-gray-900 text-white shadow-lg"></nav>
+  <body class="bg-[#0f172a] text-gray-100 font-sans antialiased">
+    
+    <nav id="navbar" class="bg-gray-900 text-white shadow-lg sticky top-0 z-50"></nav>
 
-    <header class="border-b border-white/5 bg-linear-to-b from-gray-900 to-[#0f172a] px-6 py-20">
-      <div class="mx-auto max-w-7xl">
-        <span class="mb-4 inline-block rounded-full border border-[#50a2ff]/20 bg-[#50a2ff]/10 px-3 py-1 text-[10px] font-black tracking-[0.2em] text-[#50a2ff] uppercase">2026 Season</span>
-        <h1 class="mb-6 text-5xl font-black tracking-tighter text-white md:text-6xl">Event <span class="text-[#50a2ff]">Schedule</span></h1>
-        <p class="max-w-2xl text-xl leading-relaxed text-gray-400">Access world-class workshops and sessions. Sorted chronologically for your convenience.</p>
+    <header class="py-20 px-6 border-b border-white/[0.05] bg-gradient-to-b from-gray-900 to-[#0f172a]">
+      <div class="max-w-7xl mx-auto">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#50a2ff]/10 border border-[#50a2ff]/20 text-[#50a2ff] text-[10px] font-black uppercase tracking-[0.2em] mb-4">
+          2026 Season
+        </div>
+        <h1 class="text-5xl md:text-6xl font-black tracking-tighter text-white mb-6">
+          Event <span class="text-[#50a2ff]">Schedule</span>
+        </h1>
+        <p class="text-xl text-gray-400 max-w-2xl leading-relaxed">
+          Access world-class workshops and sessions. Explore our curriculum designed for the next generation of developers.
+        </p>
       </div>
     </header>
 
-    <main class="mx-auto max-w-7xl px-6 py-16">
-      <div id="loading" class="flex flex-col items-center py-24" role="status" aria-live="polite">
-        <div class="h-12 w-12 animate-spin rounded-full border-2 border-white/10 border-t-[#50a2ff]" aria-hidden="true"></div>
-        <span class="sr-only">Loading events...</span>
+    <main class="max-w-7xl mx-auto px-6 py-16">
+      
+      <div id="loading" class="flex flex-col items-center py-24">
+        <div class="w-12 h-12 border-2 border-white/10 border-t-[#50a2ff] rounded-full animate-spin"></div>
+        <p class="mt-4 text-xs font-bold uppercase tracking-widest text-gray-600">Syncing Schedule...</p>
       </div>
-      <aside id="error" class="hidden rounded-3xl border border-red-900/50 bg-red-950/20 p-10 text-center" role="alert" aria-live="assertive">
-        <p id="errorMessage" class="font-bold text-red-400"></p>
-      </aside>
-      <section id="tableContainer" class="glass-panel hidden overflow-hidden rounded-3xl shadow-2xl" aria-label="Event Schedule">
+
+      <div id="error" class="hidden p-10 bg-red-950/20 border border-red-900/50 rounded-3xl text-center">
+        <p id="errorMessage" class="text-red-400 font-bold"></p>
+      </div>
+
+      <section id="tableContainer" class="hidden bg-gray-900/40 border border-white/[0.08] backdrop-blur-xl rounded-3xl overflow-hidden shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-700">
         <div class="overflow-x-auto">
-          <table class="w-full border-collapse text-left">
-            <caption class="sr-only">List of available workshops and events</caption>
+          <table class="w-full text-left border-collapse">
             <thead>
-              <tr class="border-b border-white/5 bg-white/2">
-                <th scope="col" class="px-6 py-5 text-[10px] font-black tracking-[0.2em] text-gray-500 uppercase">Workshop Name</th>
-                <th scope="col" class="px-6 py-5 text-[10px] font-black tracking-[0.2em] text-gray-500 uppercase">Scheduled Date</th>
-                <th scope="col" class="hidden px-6 py-5 text-[10px] font-black tracking-[0.2em] text-gray-500 uppercase lg:table-cell">Overview</th>
-                <th scope="col" class="px-6 py-5"><span class="sr-only">Actions</span></th>
+              <tr class="bg-white/[0.02] border-b border-white/[0.05]">
+                <th class="px-6 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-gray-500">Workshop Session</th>
+                <th class="px-6 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-gray-500">Scheduled Date</th>
+                <th class="px-6 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 hidden lg:table-cell">Overview</th>
+                <th class="px-6 py-5"></th>
               </tr>
             </thead>
-            <tbody id="eventsBody" class="divide-y divide-white/2"></tbody>
+            <tbody id="eventsBody" class="divide-y divide-white/[0.02]">
+              </tbody>
           </table>
         </div>
       </section>
-      <p class="mt-8 text-center text-xs font-bold tracking-widest text-gray-600 uppercase">Total Events: <span id="resultCount" class="text-gray-400">0</span></p>
+
+      <div class="mt-8 flex justify-center">
+        <div class="px-4 py-2 bg-white/5 border border-white/5 rounded-full">
+            <p class="text-[10px] font-bold tracking-widest text-gray-600 uppercase">
+              Live Sessions Available: <span id="resultCount" class="text-[#50a2ff] ml-1">0</span>
+            </p>
+        </div>
+      </div>
     </main>
 
-    <dialog id="eventModal" class="fixed inset-0 z-60 hidden items-center justify-center bg-slate-900/40 p-6 backdrop-blur-xl transition-all duration-300">
-      <div class="w-full max-w-xl overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#111827] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-        <header class="p-10 pb-0">
-          <div class="mb-8 flex items-center justify-between">
-            <h2 id="modalTitle" class="text-3xl font-black tracking-tighter text-white"></h2>
-            <button id="closeModal" class="group rounded-full bg-white/5 p-3 text-gray-500 transition-all hover:bg-white/10 hover:text-white" aria-label="Close dialog">
-              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M6 18L18 6M6 6l12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <div id="eventModal" class="hidden fixed inset-0 z-[60] backdrop-blur-xl bg-slate-900/40 items-center justify-center p-6 transition-all duration-300">
+      <article class="bg-[#111827] border border-white/[0.1] rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] max-w-xl w-full overflow-hidden animate-in zoom-in-95 duration-200">
+        <div class="p-10">
+          <div class="flex justify-between items-center mb-8">
+            <h2 id="modalTitle" class="text-3xl font-black text-white tracking-tighter leading-none"></h2>
+            <button id="closeModal" class="group bg-white/5 hover:bg-white/10 text-gray-500 hover:text-white p-3 rounded-full transition-all">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M6 18L18 6M6 6l12 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
           </div>
-          <div class="mb-8 flex items-center space-x-3">
-            <time id="modalDate" class="rounded-xl border border-[#50a2ff]/20 bg-[#50a2ff]/10 px-4 py-2 text-[11px] font-black tracking-widest text-[#50a2ff] uppercase"></time>
-            <span class="text-[10px] font-bold tracking-widest text-gray-600 uppercase">Entry confirmed</span>
+          
+          <div class="flex items-center space-x-3 mb-8">
+            <div id="modalDate" class="px-4 py-2 bg-[#50a2ff]/10 border border-[#50a2ff]/20 rounded-xl text-[#50a2ff] text-[11px] font-black uppercase tracking-widest"></div>
+            <span class="text-gray-600 text-[10px] font-bold uppercase tracking-widest">Open for Enrollment</span>
           </div>
-        </header>
-        <div class="px-10 pb-10">
-          <p id="modalDescription" class="mb-10 text-lg leading-relaxed text-gray-400"></p>
-          <button id="registerBtn" class="w-full rounded-2xl bg-[#50a2ff] py-5 text-xs font-black tracking-[0.2em] text-white uppercase shadow-lg shadow-[#50a2ff]/20 transition-all hover:bg-[#6ab0ff] active:scale-[0.98]">Register Now</button>
-          <p class="mt-4 text-center text-[10px] font-bold tracking-widest text-gray-600 uppercase">No payment required for this session</p>
+          
+          <div class="h-px bg-white/[0.05] w-full mb-8"></div>
+          
+          <p id="modalDescription" class="text-gray-400 leading-relaxed text-lg mb-10"></p>
+          
+          <footer class="space-y-4">
+            <button id="registerBtn" class="w-full py-5 bg-[#50a2ff] hover:bg-[#6ab0ff] text-white font-black uppercase tracking-[0.2em] text-xs rounded-2xl transition-all shadow-lg shadow-[#50a2ff]/20 active:scale-[0.98]">
+              Register Now
+            </button>
+            <p class="text-center text-gray-600 text-[10px] uppercase tracking-widest font-bold">
+              Instant confirmation via email
+            </p>
+          </footer>
         </div>
-      </div>
-    </dialog>
+      </article>
+    </div>
+
   </body>
 </html>
