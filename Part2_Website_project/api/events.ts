@@ -10,6 +10,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       date: string;
       categoryId: number;
       location: string;
+      cost: number;
     };
 
     if (
@@ -17,7 +18,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       !reqBody.description ||
       !reqBody.date ||
       !reqBody.categoryId ||
-      !reqBody.location
+      !reqBody.location ||
+      reqBody.cost === undefined
     ) {
       return res.status(400).json({ error: "Missing required fields" });
     }
