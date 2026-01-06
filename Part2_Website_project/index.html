@@ -6,82 +6,101 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EventsX | Plan Smarter</title>
   <script type="module" src="/pages/scripts/navbar.ts"></script>
-  <link rel="stylesheet" href="./pages/css/style.css" />
-  <style>
-    @keyframes pulse-slow {
+  <link rel="stylesheet" href="/pages/css/style.css" />
+  <link rel="stylesheet" href="/pages/css/home.css" />
 
-      0%,
-      100% {
-        opacity: 0.15;
-        transform: scale(1);
-      }
 
-      50% {
-        opacity: 0.25;
-        transform: scale(1.1);
-      }
-    }
-
-    .animate-pulse-slow {
-      animation: pulse-slow 8s infinite ease-in-out;
-    }
-
-    .glass-card {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-  </style>
+  <script type="module" src="/pages/scripts/navbar.ts"></script>
 </head>
 
-<body class="text-slate-300 font-sans antialiased overflow-hidden selection:bg-blue-500/30">
-
+<body class="text-slate-300 font-sans antialiased selection:bg-blue-500/30">
   <nav id="navbar"></nav>
 
-  <header class="relative flex min-h-screen items-center justify-center overflow-hidden px-6 text-center">
+  <main>
+    <section id="hero" class="relative flex min-h-screen items-center justify-center overflow-hidden px-6 text-center">
 
-    <div class="absolute inset-0 -z-10">
-      <div
-        class="absolute top-[-10%] left-[-10%] h-150 w-150 rounded-full bg-blue-600/20 blur-[120px] animate-pulse-slow">
-      </div>
-      <div
-        class="absolute bottom-[-10%] right-[-10%] h-150 w-150 rounded-full bg-indigo-600/10 blur-[120px] animate-pulse-slow"
-        style="animation-delay: 2s;"></div>
-    </div>
-
-    <div class="relative z-10 mx-auto max-w-5xl">
-      <div
-        class="mb-8 inline-flex items-center rounded-full border border-blue-500/30 bg-blue-500/5 px-4 py-1.5 backdrop-blur-md">
-        <span class="flex h-2 w-2 rounded-full bg-blue-500 animate-ping mr-3"></span>
-        <span class="text-xs font-bold uppercase tracking-[0.2em] text-blue-400">Now Booking for 2026</span>
+      <div class="absolute inset-0 -z-10" aria-hidden="true">
+        <div
+          class="absolute top-[-10%] left-[-10%] h-[600px] w-[600px] rounded-full bg-blue-600/20 blur-[120px] animate-pulse-slow">
+        </div>
+        <div
+          class="absolute bottom-[-10%] right-[-10%] h-[600px] w-[600px] rounded-full bg-indigo-600/10 blur-[120px] animate-pulse-slow"
+          style="animation-delay: 2s;"></div>
       </div>
 
-      <h1 class="text-6xl font-black tracking-tighter text-white md:text-8xl lg:text-9xl">
-        Plan the future <br class="hidden md:block" />
-        of <span
-          class="bg-linear-to-b from-blue-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(59,130,246,0.3)]">Events</span>
-      </h1>
+      <div class="relative z-10 mx-auto max-w-5xl">
+        <div
+          class="mb-8 inline-flex items-center rounded-full border border-blue-500/30 bg-blue-500/5 px-4 py-1.5 backdrop-blur-md">
+          <span class="flex h-2 w-2 rounded-full bg-blue-500 animate-ping mr-3" aria-hidden="true"></span>
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-blue-400">Now Booking for 2026</p>
+        </div>
 
-      <p class="mt-8 text-lg text-slate-400 md:text-2xl max-w-2xl mx-auto leading-relaxed font-light">
-        The premium ecosystem for campus organizers. Track budgets with precision and manage registrations with a
-        <span class="text-slate-200 border-b border-blue-500/50">single, fluid interface.</span>
-      </p>
+        <h1 class="text-6xl font-black tracking-tighter text-white md:text-8xl lg:text-9xl">
+          Plan the future <br class="hidden md:block" />
+          of <span
+            class="bg-gradient-to-b from-blue-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(59,130,246,0.3)]">Events</span>
+        </h1>
 
-      <div class="mt-12 flex flex-wrap justify-center gap-6">
-        <a href="/pages/events.html"
-          class="group relative overflow-hidden rounded-2xl bg-blue-600 px-12 py-5 text-sm font-black uppercase tracking-widest text-white shadow-[0_20px_40px_-15px_rgba(37,99,235,0.6)] hover:scale-105 active:scale-95 transition-all duration-300">
-          <span class="relative z-10">Explore Events</span>
-          <div
-            class="absolute inset-0 -z-0 bg-linear-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
-          </div>
-        </a>
+        <p class="mt-8 text-lg text-slate-400 md:text-2xl max-w-2xl mx-auto leading-relaxed font-light">
+          The premium ecosystem for campus organizers. Track budgets with precision and manage registrations with a
+          <strong class="text-slate-200 border-b border-blue-500/50 font-normal">single, fluid interface.</strong>
+        </p>
 
-        <a href="/pages/budget-calculator.html"
-          class="rounded-2xl border border-slate-700 bg-slate-800/20 backdrop-blur-xl px-12 py-5 text-sm font-black uppercase tracking-widest text-white hover:bg-slate-800/50 hover:border-slate-500 transition-all duration-300">
-          Budget Tool
-        </a>
+        <div class="mt-12 flex flex-wrap justify-center gap-6">
+          <a href="/pages/events.html"
+            class="group relative overflow-hidden rounded-2xl bg-blue-600 px-12 py-5 text-sm font-black uppercase tracking-widest text-white shadow-[0_20px_40px_-15px_rgba(37,99,235,0.6)] hover:scale-105 active:scale-95 transition-all duration-300">
+            <span class="relative z-10">Explore Events</span>
+            <div
+              class="absolute inset-0 -z-0 bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"
+              aria-hidden="true"></div>
+          </a>
+
+          <a href="/pages/budget-calculator.html"
+            class="rounded-2xl border border-slate-700 bg-slate-800/20 backdrop-blur-xl px-12 py-5 text-sm font-black uppercase tracking-widest text-white hover:bg-slate-800/50 hover:border-slate-500 transition-all duration-300">
+            Budget Tool
+          </a>
+        </div>
       </div>
-    </div>
-  </header>
+
+    </section>
+
+    <section id="features" class="py-24 px-6 mx-auto max-w-7xl">
+      <h2 class="text-center text-4xl font-bold text-white mb-16">Platform Features</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <article
+          class="glass-card p-8 rounded-3xl border border-slate-800/50 hover:border-blue-500/50 transition-colors">
+          <h3 class="text-xl font-bold text-white mb-4">Precision Budgeting</h3>
+          <p class="text-slate-400 leading-relaxed text-sm">
+            Our automated calculator ensures every dollar is accounted for with real-time financial health checks.
+          </p>
+        </article>
+
+        <article
+          class="glass-card p-8 rounded-3xl border border-slate-800/50 hover:border-blue-500/50 transition-colors">
+          <h3 class="text-xl font-bold text-white mb-4">Instant RSVPs</h3>
+          <p class="text-slate-400 leading-relaxed text-sm">
+            Manage attendee lists and QR check-ins through a fluid interface designed for campus speed.
+          </p>
+        </article>
+
+        <article
+          class="glass-card p-8 rounded-3xl border border-slate-800/50 hover:border-blue-500/50 transition-colors">
+          <h3 class="text-xl font-bold text-white mb-4">Smart Analytics</h3>
+          <p class="text-slate-400 leading-relaxed text-sm">
+            Understand your audience with data-driven insights and attendee satisfaction tracking.
+          </p>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-12 border-t border-slate-800/50 text-center">
+    <p class="text-xs text-slate-500 uppercase tracking-widest">&copy; 2026 EventsX Ecosystem</p>
+  </footer>
+
 </body>
+
 </html>
