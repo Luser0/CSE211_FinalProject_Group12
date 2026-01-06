@@ -1,3 +1,5 @@
+import { env } from "./env";
+
 // Types
 interface Event {
   id: number;
@@ -13,7 +15,7 @@ interface ApiResponse {
 }
 
 // Configuration
-const API_URL = `https://cse-211-final-project-group12.vercel.app/api/events`;
+const API_URL = `${env.apiUrl}/events`;
 
 // State
 let allEvents: Event[] = [];
