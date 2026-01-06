@@ -3,91 +3,143 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Learn more about Event-X and our mission to simplify event planning." />
-    <meta name="keywords" content="Event-X, About Us, Event Planning, mission" />
+    <meta
+      name="description"
+      content="Learn more about Event-X and our mission to simplify event planning."
+    />
     <title>About Us | Event-X</title>
-
-    <script type="module" src="/pages/scripts/navbar.ts"></script>
     <link rel="stylesheet" href="./css/style.css" />
+    <script type="module" src="/pages/scripts/navbar.ts"></script>
   </head>
-  <body class="bg-[#0f172a] text-gray-100 font-sans antialiased">
-    
-    <nav id="navbar" class="bg-gray-900 text-white shadow-lg sticky top-0 z-50"></nav>
+  <body class="bg-[#0f172a] font-sans text-gray-100 antialiased">
+    <nav
+      id="navbar"
+      class="sticky top-0 z-50 bg-gray-900 text-white shadow-lg"
+    ></nav>
 
-    <header class="py-24 px-6 border-b border-white/[0.05] bg-gradient-to-b from-gray-900 to-[#0f172a]">
-      <div class="max-w-7xl mx-auto text-center">
-        <div class="inline-block px-3 py-1 rounded-full bg-[#50a2ff]/10 border border-[#50a2ff]/20 text-[#50a2ff] text-[10px] font-black uppercase tracking-[0.2em] mb-4">
-          Our Mission
-        </div>
-        <h1 class="text-6xl md:text-7xl font-black tracking-tighter text-white mb-6">
+    <header
+      class="border-b border-white/5 bg-linear-to-b from-gray-900 to-[#0f172a] px-6 py-24"
+    >
+      <div class="mx-auto max-w-7xl text-center">
+        <span
+          class="mb-4 inline-block rounded-full border border-[#50a2ff]/20 bg-[#50a2ff]/10 px-3 py-1 text-[10px] font-black tracking-[0.2em] text-[#50a2ff] uppercase"
+          >Our Mission</span
+        >
+        <h1
+          class="mb-6 text-6xl font-black tracking-tighter text-white md:text-7xl"
+        >
           Beyond <span class="text-[#50a2ff]">Boundaries.</span>
         </h1>
-        <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-          Event-X is a dynamic ecosystem designed to redefine the way developers and designers connect, learn, and scale.
+        <p class="mx-auto max-w-2xl text-xl leading-relaxed text-gray-400">
+          Event-X is a dynamic ecosystem designed to redefine the way developers
+          and designers connect, learn, and scale.
         </p>
       </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 py-16">
+    <main class="mx-auto max-w-7xl px-6 py-16">
       <div class="flex flex-col gap-12 lg:flex-row">
-        
-        <article class="lg:w-3/4 space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          
-          <div class="bg-gray-900/40 border border-white/[0.08] backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden">
-             <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-[#50a2ff]/5 blur-[100px] rounded-full pointer-events-none"></div>
-
-            <h2 class="text-3xl font-black tracking-tighter text-white mb-6">The Event-X Story</h2>
-            <p class="text-lg text-gray-400 leading-relaxed mb-8">
-              Born in 2026, Event-X was built to solve a single problem: the fragmentation of technical knowledge. We provide powerful tools like budget calculators and real-time event browsing to ensure your next gathering or learning session is a success.
+        <article
+          class="animate-in fade-in slide-in-from-bottom-4 space-y-12 duration-700 lg:w-3/4"
+        >
+          <section
+            class="relative overflow-hidden rounded-[2.5rem] border border-white/8 bg-gray-900/40 p-8 shadow-2xl backdrop-blur-xl md:p-12"
+            aria-labelledby="story-heading"
+          >
+            <div
+              class="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-[#50a2ff]/5 blur-[100px]"
+              aria-hidden="true"
+            ></div>
+            <h2
+              id="story-heading"
+              class="mb-6 text-3xl font-black tracking-tighter text-white"
+            >
+              The Event-X Story
+            </h2>
+            <p class="mb-8 text-lg leading-relaxed text-gray-400">
+              Born in 2026, Event-X was built to solve a single problem: the
+              fragmentation of technical knowledge. We provide powerful tools
+              like budget calculators and real-time event browsing to ensure
+              your next gathering or learning session is a success.
             </p>
-
-            <h3 class="text-xl font-bold text-white mb-4">Our Vision</h3>
-            <p class="text-gray-400 leading-relaxed">
-              To be the primary resource for the tech community by combining modern web technologies with user-centric design. We believe that better tools lead to better experiences.
+            <h3 class="mb-4 text-xl font-bold text-white">Our Vision</h3>
+            <p class="leading-relaxed text-gray-400">
+              To be the primary resource for the tech community by combining
+              modern web technologies with user-centric design. We believe that
+              better tools lead to better experiences.
             </p>
-
-            <figure class="mt-12 relative group">
-              <div class="absolute inset-0 bg-[#50a2ff]/10 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <figure class="group relative mt-12">
+              <div
+                class="absolute inset-0 rounded-4xl bg-[#50a2ff]/10 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100"
+                aria-hidden="true"
+              ></div>
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
-                alt="Our team collaborating"
-                class="relative w-full rounded-[2rem] shadow-2xl border border-white/10 filter grayscale group-hover:grayscale-0 transition-all duration-700"
+                alt="Our team collaborating around a table with laptops"
+                class="relative w-full rounded-[2rem] border border-white/10 shadow-2xl grayscale filter transition-all duration-700 group-hover:grayscale-0"
+                loading="lazy"
               />
-              <figcaption class="mt-4 text-[10px] font-black uppercase tracking-[0.2em] text-gray-600">
+              <figcaption
+                class="mt-4 text-[10px] font-black tracking-[0.2em] text-gray-600 uppercase"
+              >
                 Pioneering the future of event management.
               </figcaption>
             </figure>
-          </div>
-
+          </section>
         </article>
 
-        <aside class="lg:w-1/4 space-y-6">
-          <div class="bg-gray-900/40 border border-white/[0.08] backdrop-blur-xl rounded-[2rem] p-8 shadow-xl">
-            <h3 class="text-[10px] font-black uppercase tracking-[0.3em] text-[#50a2ff] mb-6">Quick Access</h3>
+        <aside class="space-y-6 lg:w-1/4">
+          <nav
+            class="rounded-4xl border border-white/8 bg-gray-900/40 p-8 shadow-xl backdrop-blur-xl"
+            aria-labelledby="quick-access-heading"
+          >
+            <h3
+              id="quick-access-heading"
+              class="mb-6 text-[10px] font-black tracking-[0.3em] text-[#50a2ff] uppercase"
+            >
+              Quick Access
+            </h3>
             <ul class="space-y-4">
               <li>
-                <a href="events.html" class="flex items-center text-sm font-bold text-gray-400 hover:text-white transition-colors group">
-                  <span class="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span> Browse Events
-                </a>
+                <a
+                  href="events.html"
+                  class="group flex items-center text-sm font-bold text-gray-400 transition-colors hover:text-white"
+                  ><span
+                    class="mr-2 opacity-0 transition-opacity group-hover:opacity-100"
+                    aria-hidden="true"
+                    >→</span
+                  >
+                  Browse Events</a
+                >
               </li>
               <li>
-                <a href="contact.html" class="flex items-center text-sm font-bold text-gray-400 hover:text-white transition-colors group">
-                  <span class="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span> Join the Community
-                </a>
+                <a
+                  href="contact.html"
+                  class="group flex items-center text-sm font-bold text-gray-400 transition-colors hover:text-white"
+                  ><span
+                    class="mr-2 opacity-0 transition-opacity group-hover:opacity-100"
+                    aria-hidden="true"
+                    >→</span
+                  >
+                  Join the Community</a
+                >
               </li>
             </ul>
-          </div>
-
-          <div class="bg-white/5 border border-white/5 rounded-[2rem] p-8">
-            <h3 class="text-sm font-bold text-white mb-4">Why Event-X?</h3>
-            <p class="text-xs text-gray-500 leading-relaxed">
-              We focus on performance and precision. Every workshop and feature is vetted for quality and impact.
+          </nav>
+          <section
+            class="rounded-4xl border border-white/5 bg-white/5 p-8"
+            aria-labelledby="why-heading"
+          >
+            <h3 id="why-heading" class="mb-4 text-sm font-bold text-white">
+              Why Event-X?
+            </h3>
+            <p class="text-xs leading-relaxed text-gray-500">
+              We focus on performance and precision. Every workshop and feature
+              is vetted for quality and impact.
             </p>
-          </div>
+          </section>
         </aside>
-
       </div>
     </main>
-
   </body>
 </html>
