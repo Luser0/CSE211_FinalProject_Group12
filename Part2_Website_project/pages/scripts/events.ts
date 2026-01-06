@@ -1,21 +1,10 @@
-interface Event {
-  id: number;
-  name: string;
-  description: string;
-  slug: string;
-  date: string;
-  categoryId: number;
-}
-
-interface ApiResponse {
-  data: Event[];
-}
+import type { EventsGetType } from "api/events";
 
 const API_URL = `https://cse-211-final-project-group12.vercel.app/api/events`;
-let allEvents: Event[] = [];
-let currentEvent: Event | null = null;
+let allEvents: EventsGetType["data"] = [];
+let currentEvent: EventsGetType["data"][number] | null = null;
 
-function formatDate(dateString: string): string {
+function formatDate(dateString: string | Date): string {
   return new Date(dateString).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -37,7 +26,7 @@ async function fetchEvents(): Promise<void> {
   try {
     const response = await fetch(API_URL);
     if (!response.ok) throw new Error(`Status: ${response.status}`);
-    const result: ApiResponse = await response.json();
+    const result: EventsGetType = await response.json();
 
     allEvents = (result.data || []).sort(
       (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
@@ -95,7 +84,7 @@ function renderTable(): void {
   });
 }
 
-function openModal(event: Event): void {
+function openModal(event: EventsGetType["data"][number]): void {
   currentEvent = event;
   const modal = document.getElementById("eventModal");
   if (modal) {

@@ -14,6 +14,8 @@ export const event = sqliteCore.sqliteTable("event", {
     .notNull()
     .references(() => event_category.id),
   location: sqliteCore.text().notNull(),
+  cost: sqliteCore.real().notNull(),
+  img: sqliteCore.text().notNull(),
 });
 
 /**

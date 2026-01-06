@@ -11,6 +11,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       categoryId: number;
       location: string;
       cost: number;
+      img: string;
     };
 
     if (
@@ -19,7 +20,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       !reqBody.date ||
       !reqBody.categoryId ||
       !reqBody.location ||
-      reqBody.cost === undefined
+      reqBody.cost === undefined ||
+      !reqBody.img
     ) {
       return res.status(400).json({ error: "Missing required fields" });
     }
@@ -33,6 +35,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(200).json({ message: "Event created", data: reqBody });
   } else if (req.method === "GET") {
     const events = await db.select().from(event);
-    return res.status(200).json({ data: events });
+
+    const result: EventsGetType = { data: events };
+    return res.status(200).json(result);
   }
 }
+
+export type EventsGetType = {
+  data: Array<{
+    id: number;
+    name: string;
+    description: string;
+    slug: string;
+    date: Date;
+    categoryId: number;
+    location: string;
+  }>;
+};
