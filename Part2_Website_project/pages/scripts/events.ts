@@ -11,7 +11,7 @@ interface ApiResponse {
   data: Event[];
 }
 
-const API_URL = `https://cse-211-final-project-group12.vercel.app/api/events`;
+const API_URL = `http://localhost:3000/api/events`;
 let allEvents: Event[] = [];
 let currentEvent: Event | null = null;
 
@@ -122,8 +122,9 @@ function closeModal(): void {
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("closeModal")?.addEventListener("click", closeModal);
   document.getElementById("registerBtn")?.addEventListener("click", () => {
-    if (currentEvent)
-      window.location.href = `/pages/registration.html?event=${currentEvent.slug}`;
+    if (currentEvent) {
+      window.location.href = `/pages/registration.html?id=${currentEvent.id}`;
+    }
   });
 
   const modal = document.getElementById("eventModal");

@@ -8,66 +8,73 @@
     <script type="module" src="/pages/scripts/navbar.ts"></script>
     <script type="module" src="./scripts/registration.ts"></script>
   </head>
-  <body class="bg-[#0f172a] font-sans text-gray-100 antialiased">
-    <nav id="navbar" class="sticky top-0 z-50 bg-gray-900 text-white shadow-lg"></nav>
+  <body class="bg-[#0f172a] text-gray-100 font-sans antialiased">
+    
+    <nav id="navbar" class="bg-gray-900 text-white shadow-lg sticky top-0 z-50"></nav>
 
-    <main class="flex min-h-[calc(100-4rem)] items-center justify-center px-6 py-20">
+    <main class="min-h-[calc(100vh-4rem)] flex items-center justify-center px-6 py-12 lg:py-20">
       <div class="w-full max-w-xl">
-        <div class="mb-10 text-center">
-          <h1 class="mb-2 text-4xl font-black tracking-tighter text-white">
-            Finalize Registration
-          </h1>
-          <p class="text-gray-400">
-            You are registering for:
-            <span id="selectedEventName" class="text-sm font-bold tracking-widest text-[#50a2ff] uppercase">
-              Selected Session</span>
+        
+        <div class="text-center mb-10 animate-in fade-in slide-in-from-bottom-2 duration-500">
+          <a href="/pages/events.html" class="inline-flex items-center text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-[#50a2ff] transition-colors mb-6 group">
+            <span class="mr-2 transform group-hover:-translate-x-1 transition-transform">←</span> Back to Schedule
+          </a>
+          <h1 class="text-4xl md:text-5xl font-black tracking-tighter text-white mb-3">Finalize Registration</h1>
+          <p class="text-gray-400 text-sm md:text-base">
+            You are signing up for: 
+            <span id="selectedEventName" class="text-[#50a2ff] font-bold italic">
+              Synchronizing event details...
+            </span>
           </p>
         </div>
 
-        <div class="rounded-[2.5rem] border border-white/8 bg-gray-900/50 p-10 shadow-2xl backdrop-blur-xl">
-          <form id="registrationForm" class="space-y-6">
-            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <div class="space-y-2">
-                <label class="ml-1 text-[10px] font-black tracking-widest text-gray-500 uppercase">Full Name</label>
-                <input type="text" required placeholder="John Doe" class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-white transition-all placeholder:text-gray-600 focus:border-[#50a2ff] focus:ring-1 focus:ring-[#50a2ff] focus:outline-none" />
-              </div>
+        <div id="statusMessage" class="hidden mb-6 p-4 rounded-2xl border text-xs font-bold uppercase tracking-widest text-center animate-in zoom-in-95">
+          </div>
 
-              <div class="space-y-2">
-                <label class="ml-1 text-[10px] font-black tracking-widest text-gray-500 uppercase">Email Address</label>
-                <input type="email" required placeholder="john@example.com" class="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-white transition-all placeholder:text-gray-600 focus:border-[#50a2ff] focus:ring-1 focus:ring-[#50a2ff] focus:outline-none" />
-              </div>
+        <div class="bg-gray-900/40 border border-white/[0.08] backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden">
+          <div class="absolute -top-24 -right-24 w-48 h-48 bg-[#50a2ff]/10 blur-[80px] rounded-full pointer-events-none"></div>
+
+          <form id="registrationForm" class="relative z-10 space-y-7">
+            
+            <div class="space-y-2">
+              <label class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 ml-1">Full Name</label>
+              <input type="text" name="name" required placeholder="Jane Doe" 
+                class="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#50a2ff] focus:ring-1 focus:ring-[#50a2ff] transition-all" />
             </div>
 
-            <div class="space-y-2">
-              <label class="ml-1 text-[10px] font-black tracking-widest text-gray-500 uppercase">Professional Role</label>
-              <select class="w-full cursor-pointer appearance-none rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-white transition-all focus:border-[#50a2ff] focus:outline-none">
-                <option class="bg-[#0f172a]">Software Engineer</option>
-                <option class="bg-[#0f172a]">Designer</option>
-                <option class="bg-[#0f172a]">Student</option>
-                <option class="bg-[#0f172a]">Other</option>
-              </select>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 ml-1">Email Address</label>
+                <input type="email" name="email" required placeholder="jane@example.com" 
+                  class="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#50a2ff] focus:ring-1 focus:ring-[#50a2ff] transition-all" />
+              </div>
+
+              <div class="space-y-2">
+                <label class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 ml-1">Phone Number</label>
+                <input type="tel" name="phonenumber" required placeholder="+1 (555) 000-0000" 
+                  class="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#50a2ff] focus:ring-1 focus:ring-[#50a2ff] transition-all" />
+              </div>
             </div>
 
             <div class="flex items-start space-x-3 py-2">
-              <input type="checkbox" required class="mt-1 h-4 w-4 rounded border-gray-700 bg-gray-800 text-[#50a2ff] focus:ring-[#50a2ff]" />
-              <p class="text-xs leading-relaxed text-gray-500">I agree to the
-                <span class="cursor-pointer text-gray-300 underline">Event-X Terms of Service</span>
-                and privacy policy regarding 2026 workshop attendance.
+              <input type="checkbox" required class="mt-1 w-5 h-5 rounded-lg border-white/10 bg-white/5 text-[#50a2ff] focus:ring-[#50a2ff] transition-all cursor-pointer" />
+              <p class="text-[11px] text-gray-500 leading-relaxed font-medium">
+                I agree to the <span class="text-gray-300 underline underline-offset-4 cursor-pointer hover:text-[#50a2ff]">Event-X Terms of Conduct</span> and acknowledge that my attendance is subject to availability for 2026.
               </p>
             </div>
 
-            <button type="submit" class="mt-4 w-full rounded-2xl bg-[#50a2ff] py-5 text-xs font-black tracking-[0.2em] text-white uppercase shadow-lg shadow-[#50a2ff]/20 transition-all hover:bg-[#6ab0ff] active:scale-[0.98]">
-              Complete Registration
+            <button type="submit" class="w-full py-5 bg-[#50a2ff] hover:bg-[#6ab0ff] text-white font-black uppercase tracking-[0.2em] text-xs rounded-2xl transition-all shadow-lg shadow-[#50a2ff]/20 active:scale-[0.98] mt-4">
+              Register Now
             </button>
+
           </form>
         </div>
 
-        <div class="mt-8 text-center">
-          <a href="events.html" class="text-xs font-bold tracking-widest text-gray-600 uppercase transition-colors hover:text-gray-400">
-            Back to Schedule
-          </a>
-        </div>
+        <p class="mt-8 text-center text-gray-600 text-[10px] font-black uppercase tracking-[0.3em]">
+          Secure 256-bit encrypted registration
+        </p>
       </div>
     </main>
+
   </body>
 </html>
