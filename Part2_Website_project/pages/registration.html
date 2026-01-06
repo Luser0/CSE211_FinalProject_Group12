@@ -13,9 +13,9 @@
     <nav id="navbar" class="bg-gray-900 text-white shadow-lg sticky top-0 z-50"></nav>
 
     <main class="min-h-[calc(100vh-4rem)] flex items-center justify-center px-6 py-12 lg:py-20">
-      <div class="w-full max-w-xl">
+      <article class="w-full max-w-xl">
         
-        <div class="text-center mb-10 animate-in fade-in slide-in-from-bottom-2 duration-500">
+        <section class="text-center mb-10 animate-in fade-in slide-in-from-bottom-2 duration-500">
           <a href="/pages/events.html" class="inline-flex items-center text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-[#50a2ff] transition-colors mb-6 group">
             <span class="mr-2 transform group-hover:-translate-x-1 transition-transform">←</span> Back to Schedule
           </a>
@@ -26,41 +26,41 @@
               Synchronizing event details...
             </span>
           </p>
-        </div>
+        </section>
 
-        <div id="statusMessage" class="hidden mb-6 p-4 rounded-2xl border text-xs font-bold uppercase tracking-widest text-center animate-in zoom-in-95">
-          </div>
+        <section id="statusMessage" class="hidden mb-6 p-4 rounded-2xl border text-xs font-bold uppercase tracking-widest text-center animate-in zoom-in-95">
+          </section>
 
-        <div class="bg-gray-900/40 border border-white/[0.08] backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden">
+        <section class="bg-gray-900/40 border border-white/[0.08] backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden">
           <div class="absolute -top-24 -right-24 w-48 h-48 bg-[#50a2ff]/10 blur-[80px] rounded-full pointer-events-none"></div>
 
           <form id="registrationForm" class="relative z-10 space-y-7">
             
             <div class="space-y-2">
-              <label class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 ml-1">Full Name</label>
-              <input type="text" name="name" required placeholder="Jane Doe" 
+              <label for="name" class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 ml-1">Full Name</label>
+              <input id="name" type="text" name="name" required placeholder="Jane Doe" 
                 class="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#50a2ff] focus:ring-1 focus:ring-[#50a2ff] transition-all" />
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="space-y-2">
-                <label class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 ml-1">Email Address</label>
-                <input type="email" name="email" required placeholder="jane@example.com" 
+                <label for="email" class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 ml-1">Email Address</label>
+                <input id="email" type="email" name="email" required placeholder="jane@example.com" 
                   class="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#50a2ff] focus:ring-1 focus:ring-[#50a2ff] transition-all" />
               </div>
 
               <div class="space-y-2">
-                <label class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 ml-1">Phone Number</label>
-                <input type="tel" name="phonenumber" required placeholder="+1 (555) 000-0000" 
+                <label for="phonenumber" class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 ml-1">Phone Number</label>
+                <input id="phonenumber" type="tel" name="phonenumber" required placeholder="+1 (555) 000-0000" 
                   class="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-600 focus:outline-none focus:border-[#50a2ff] focus:ring-1 focus:ring-[#50a2ff] transition-all" />
               </div>
             </div>
 
             <div class="flex items-start space-x-3 py-2">
-              <input type="checkbox" required class="mt-1 w-5 h-5 rounded-lg border-white/10 bg-white/5 text-[#50a2ff] focus:ring-[#50a2ff] transition-all cursor-pointer" />
-              <p class="text-[11px] text-gray-500 leading-relaxed font-medium">
+              <input id="termsCheckbox" type="checkbox" required class="mt-1 w-5 h-5 rounded-lg border-white/10 bg-white/5 text-[#50a2ff] focus:ring-[#50a2ff] transition-all cursor-pointer" />
+              <label for="termsCheckbox" class="text-[11px] text-gray-500 leading-relaxed font-medium">
                 I agree to the <span class="text-gray-300 underline underline-offset-4 cursor-pointer hover:text-[#50a2ff]">Event-X Terms of Conduct</span> and acknowledge that my attendance is subject to availability for 2026.
-              </p>
+              </label>
             </div>
 
             <button type="submit" class="w-full py-5 bg-[#50a2ff] hover:bg-[#6ab0ff] text-white font-black uppercase tracking-[0.2em] text-xs rounded-2xl transition-all shadow-lg shadow-[#50a2ff]/20 active:scale-[0.98] mt-4">
@@ -68,8 +68,8 @@
             </button>
 
           </form>
-        </div>
-      </div>
+        </section>
+      </article>
       
     </main>
 
