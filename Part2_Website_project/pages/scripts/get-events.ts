@@ -13,9 +13,7 @@ interface ApiResponse {
 }
 
 // Configuration
-const API_URL = process.env.NEXT_PUBLIC_VERCEL_URL
-  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/events`
-  : "http://localhost:3000/api/events";
+const API_URL = `https://cse-211-final-project-group12.vercel.app/api/events`;
 
 // State
 let allEvents: Event[] = [];
