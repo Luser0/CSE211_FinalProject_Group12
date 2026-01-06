@@ -292,7 +292,6 @@ function initializeEventListeners(): void {
   // Modal controls
   const closeModalBtn = document.getElementById("closeModal");
   const registerBtn = document.getElementById("registerBtn");
-  const shareBtn = document.getElementById("shareBtn");
   const modal = document.getElementById("eventModal");
 
   closeModalBtn?.addEventListener("click", closeModal);
