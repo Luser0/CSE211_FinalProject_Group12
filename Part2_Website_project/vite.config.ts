@@ -17,6 +17,7 @@ export default defineConfig({
           "pages/budget-calculator.html",
         ),
         registration: path.resolve(__dirname, "pages/registration.html"),
+        thankYou: path.resolve(__dirname,"pages/thank-you.html"),
         contact: path.resolve(__dirname, "pages/contact.html"),
       },
     },
